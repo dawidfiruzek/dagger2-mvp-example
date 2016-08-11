@@ -1,7 +1,7 @@
 package pl.dawidfiruzek.dagger2mvpexample.main;
 
 /**
- * Created by fks on 11.08.2016.
+ * Created by Dawid Firuzek on 11.08.2016.
  */
 public class MainPresenter {
 
