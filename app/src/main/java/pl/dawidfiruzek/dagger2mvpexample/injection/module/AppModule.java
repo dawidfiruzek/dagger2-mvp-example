@@ -1,5 +1,6 @@
 package pl.dawidfiruzek.dagger2mvpexample.injection.module;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
@@ -24,6 +25,12 @@ public class AppModule {
     @Provides
     MyApplication provideApplication() {
         return app;
+    }
+
+    @Singleton
+    @Provides
+    Context provideApplicationContext() {
+        return app.getApplicationContext();
     }
 
     @Singleton

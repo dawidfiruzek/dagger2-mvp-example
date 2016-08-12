@@ -1,5 +1,6 @@
 package pl.dawidfiruzek.dagger2mvpexample.injection.component;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 
 import javax.inject.Singleton;
@@ -17,5 +18,6 @@ public interface AppComponent {
 
     // AppModule
     MyApplication myApp();
+    Context appContext();
     SharedPreferences sharedPrefs();
 }

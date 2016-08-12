@@ -15,6 +15,9 @@ public class MainPresenter {
     @Inject
     SharedPreferences preferences;
 
+    @Inject
+    Test2 testClass;
+
     private @Setter MainView view;
 
     @Inject
@@ -24,5 +27,7 @@ public class MainPresenter {
     public void test() {
         Timber.e("test");
         Timber.e(preferences == null ? "null" : "notnull");
+
+        testClass.test();
     }
 }
