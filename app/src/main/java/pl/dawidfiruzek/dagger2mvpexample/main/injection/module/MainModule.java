@@ -16,13 +16,13 @@ public class MainModule {
 
     @RuntimeScope
     @Provides
-    InjectedInnerClass provideTestClass(Context appContext) {
+    InjectedInnerClass provideInjectedInnerClass(Context appContext) {
         return new InjectedInnerClass(appContext);
     }
 
     @RuntimeScope
     @Provides
-    InjectedClass provideTest2(InjectedInnerClass injectedInnerClass) {
+    InjectedClass provideInjectedClass(InjectedInnerClass injectedInnerClass) {
         return new InjectedClass(injectedInnerClass);
     }
 }
