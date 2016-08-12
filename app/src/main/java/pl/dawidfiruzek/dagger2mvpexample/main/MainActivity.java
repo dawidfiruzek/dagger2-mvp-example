@@ -8,24 +8,19 @@ import javax.inject.Inject;
 
 import pl.dawidfiruzek.dagger2mvpexample.MyApplication;
 import pl.dawidfiruzek.dagger2mvpexample.R;
+import timber.log.Timber;
 
-public class MainActivity extends AppCompatActivity implements MainView{
+public class MainActivity extends AppCompatActivity implements MainView {
 
-    MainPresenter presenter;
-
-    @Inject SharedPreferences sharedPreferences;
+    @Inject MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ((MyApplication)getApplication()).getAppComponent().inject(this);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ((MyApplication)getApplication()).getMainComponent().inject(this);
 
-        init();
-    }
-
-    private void init() {
-        presenter = new MainPresenter(this);
+        presenter.setView(this);
+        presenter.test();
     }
 }

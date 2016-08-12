@@ -1,4 +1,4 @@
-package pl.dawidfiruzek.dagger2mvpexample.dagger.module;
+package pl.dawidfiruzek.dagger2mvpexample.injection.module;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
