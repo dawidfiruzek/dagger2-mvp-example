@@ -5,8 +5,8 @@ import android.content.Context;
 import dagger.Module;
 import dagger.Provides;
 import pl.dawidfiruzek.dagger2mvpexample.common.injection.scope.RuntimeScope;
-import pl.dawidfiruzek.dagger2mvpexample.main.InjectedClass;
-import pl.dawidfiruzek.dagger2mvpexample.main.InjectedInnerClass;
+import pl.dawidfiruzek.dagger2mvpexample.main.model.InjectedClass;
+import pl.dawidfiruzek.dagger2mvpexample.main.model.InjectedInnerClass;
 
 /**
  * Created by Dawid Firuzek on 12.08.16.

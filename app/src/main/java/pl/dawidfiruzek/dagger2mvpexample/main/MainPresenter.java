@@ -3,6 +3,7 @@ package pl.dawidfiruzek.dagger2mvpexample.main;
 import javax.inject.Inject;
 
 import lombok.Setter;
+import pl.dawidfiruzek.dagger2mvpexample.main.model.InjectedClass;
 import timber.log.Timber;
 
 /**
