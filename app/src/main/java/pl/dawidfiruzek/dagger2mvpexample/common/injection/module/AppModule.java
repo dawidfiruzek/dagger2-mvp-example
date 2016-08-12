@@ -1,4 +1,4 @@
-package pl.dawidfiruzek.dagger2mvpexample.injection.module;
+package pl.dawidfiruzek.dagger2mvpexample.common.injection.module;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -15,6 +15,7 @@ import pl.dawidfiruzek.dagger2mvpexample.MyApplication;
  */
 @Module
 public class AppModule {
+
     private MyApplication app;
 
     public AppModule(MyApplication app) {

@@ -1,7 +1,5 @@
 package pl.dawidfiruzek.dagger2mvpexample.main;
 
-import android.content.SharedPreferences;
-
 import javax.inject.Inject;
 
 import lombok.Setter;
@@ -13,10 +11,7 @@ import timber.log.Timber;
 public class MainPresenter {
 
     @Inject
-    SharedPreferences preferences;
-
-    @Inject
-    Test2 testClass;
+    InjectedClass injectedClass;
 
     private @Setter MainView view;
 
@@ -25,9 +20,7 @@ public class MainPresenter {
     }
 
     public void test() {
-        Timber.e("test");
-        Timber.e(preferences == null ? "null" : "notnull");
-
-        testClass.test();
+        Timber.d("test called");
+        injectedClass.test();
     }
 }

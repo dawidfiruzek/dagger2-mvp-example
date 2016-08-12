@@ -1,15 +1,13 @@
 package pl.dawidfiruzek.dagger2mvpexample;
 
 import android.app.Application;
-import android.content.SharedPreferences;
 
-import javax.inject.Inject;
-
-import pl.dawidfiruzek.dagger2mvpexample.injection.component.AppComponent;
-import pl.dawidfiruzek.dagger2mvpexample.injection.component.DaggerAppComponent;
+import lombok.Getter;
+import pl.dawidfiruzek.dagger2mvpexample.common.injection.component.AppComponent;
+import pl.dawidfiruzek.dagger2mvpexample.common.injection.component.DaggerAppComponent;
 import pl.dawidfiruzek.dagger2mvpexample.main.injection.component.DaggerMainComponent;
 import pl.dawidfiruzek.dagger2mvpexample.main.injection.component.MainComponent;
-import pl.dawidfiruzek.dagger2mvpexample.injection.module.AppModule;
+import pl.dawidfiruzek.dagger2mvpexample.common.injection.module.AppModule;
 import pl.dawidfiruzek.dagger2mvpexample.main.injection.module.MainModule;
 import timber.log.Timber;
 
@@ -18,18 +16,28 @@ import timber.log.Timber;
  */
 public class MyApplication extends Application {
 
-    private AppComponent appComponent;
-    private MainComponent mainComponent;
-
-    @Inject
-    SharedPreferences preferences;
+    private @Getter AppComponent appComponent;
+    private @Getter MainComponent mainComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        initTimber();
+        init();
+    }
 
+    private void init() {
+        initTimber();
+        initComponents();
+    }
+
+    private void initTimber() {
+        if(BuildConfig.DEBUG) {
+            Timber.plant(new Timber.DebugTree());
+        }
+    }
+
+    private void initComponents() {
         // TODO create components factory
         appComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(this))
@@ -39,19 +47,4 @@ public class MyApplication extends Application {
                 .mainModule(new MainModule())
                 .build();
     }
-
-    private void initTimber() {
-        if(BuildConfig.DEBUG) {
-            Timber.plant(new Timber.DebugTree());
-        }
-    }
-
-    public AppComponent getAppComponent() {
-        return appComponent;
-    }
-
-    public MainComponent getMainComponent() {
-        return mainComponent;
-    }
-
 }

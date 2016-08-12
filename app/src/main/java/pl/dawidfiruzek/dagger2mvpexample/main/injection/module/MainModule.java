@@ -2,31 +2,27 @@ package pl.dawidfiruzek.dagger2mvpexample.main.injection.module;
 
 import android.content.Context;
 
-import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
-import pl.dawidfiruzek.dagger2mvpexample.injection.scope.RuntimeScope;
-import pl.dawidfiruzek.dagger2mvpexample.main.MainPresenter;
-import pl.dawidfiruzek.dagger2mvpexample.main.MainView;
-import pl.dawidfiruzek.dagger2mvpexample.main.Test2;
-import pl.dawidfiruzek.dagger2mvpexample.main.TestClass;
+import pl.dawidfiruzek.dagger2mvpexample.common.injection.scope.RuntimeScope;
+import pl.dawidfiruzek.dagger2mvpexample.main.InjectedClass;
+import pl.dawidfiruzek.dagger2mvpexample.main.InjectedInnerClass;
 
 /**
- * Created by dawidfiruzek on 12.08.16.
+ * Created by Dawid Firuzek on 12.08.16.
  */
 @Module
 public class MainModule {
 
     @RuntimeScope
     @Provides
-    TestClass provideTestClass(Context appContext) {
-        return new TestClass(appContext);
+    InjectedInnerClass provideTestClass(Context appContext) {
+        return new InjectedInnerClass(appContext);
     }
 
     @RuntimeScope
     @Provides
-    Test2 provideTest2(TestClass testClass) {
-        return new Test2(testClass);
+    InjectedClass provideTest2(InjectedInnerClass injectedInnerClass) {
+        return new InjectedClass(injectedInnerClass);
     }
 }
