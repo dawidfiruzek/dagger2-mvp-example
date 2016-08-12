@@ -6,11 +6,12 @@ import android.os.Bundle;
 
 import javax.inject.Inject;
 
+import pl.dawidfiruzek.dagger2mvpexample.BaseActivity;
 import pl.dawidfiruzek.dagger2mvpexample.MyApplication;
 import pl.dawidfiruzek.dagger2mvpexample.R;
 import timber.log.Timber;
 
-public class MainActivity extends AppCompatActivity implements MainView {
+public class MainActivity extends BaseActivity implements MainView {
 
     @Inject MainPresenter presenter;
 
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ((MyApplication)getApplication()).getMainComponent().inject(this);
+        getMainApplication().getMainComponent().inject(this);
 
         presenter.setView(this);
         presenter.test();
