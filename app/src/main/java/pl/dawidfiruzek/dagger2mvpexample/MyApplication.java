@@ -3,12 +3,12 @@ package pl.dawidfiruzek.dagger2mvpexample;
 import android.app.Application;
 
 import lombok.Getter;
-import pl.dawidfiruzek.dagger2mvpexample.common.injection.component.AppComponent;
-import pl.dawidfiruzek.dagger2mvpexample.common.injection.component.DaggerAppComponent;
-import pl.dawidfiruzek.dagger2mvpexample.main.injection.component.DaggerMainComponent;
-import pl.dawidfiruzek.dagger2mvpexample.main.injection.component.MainComponent;
-import pl.dawidfiruzek.dagger2mvpexample.common.injection.module.AppModule;
-import pl.dawidfiruzek.dagger2mvpexample.main.injection.module.MainModule;
+import pl.dawidfiruzek.dagger2mvpexample.common.injection.AppComponent;
+import pl.dawidfiruzek.dagger2mvpexample.common.injection.DaggerAppComponent;
+import pl.dawidfiruzek.dagger2mvpexample.main.injection.DaggerMainComponent;
+import pl.dawidfiruzek.dagger2mvpexample.main.injection.MainComponent;
+import pl.dawidfiruzek.dagger2mvpexample.common.injection.AppModule;
+import pl.dawidfiruzek.dagger2mvpexample.main.injection.MainModule;
 import timber.log.Timber;
 
 /**

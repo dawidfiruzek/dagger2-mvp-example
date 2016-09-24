@@ -1,13 +1,10 @@
-package pl.dawidfiruzek.dagger2mvpexample.common.injection.component;
+package pl.dawidfiruzek.dagger2mvpexample.common.injection;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import javax.inject.Singleton;
-
 import dagger.Component;
 import pl.dawidfiruzek.dagger2mvpexample.MyApplication;
-import pl.dawidfiruzek.dagger2mvpexample.common.injection.module.AppModule;
 
 /**
  * Created by Dawid Firuzek on 11.08.2016.

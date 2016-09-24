@@ -8,9 +8,10 @@ import pl.dawidfiruzek.dagger2mvpexample.common.BaseActivity;
 import pl.dawidfiruzek.dagger2mvpexample.R;
 import timber.log.Timber;
 
-public class MainActivity extends BaseActivity implements MainView {
+public class MainActivity extends BaseActivity implements MainContract.View {
 
-    @Inject MainPresenter presenter;
+    @Inject
+    MainContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

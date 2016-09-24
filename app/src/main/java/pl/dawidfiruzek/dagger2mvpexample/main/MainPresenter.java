@@ -1,22 +1,27 @@
 package pl.dawidfiruzek.dagger2mvpexample.main;
 
-import lombok.Setter;
 import pl.dawidfiruzek.dagger2mvpexample.main.model.InjectedClass;
 import timber.log.Timber;
 
 /**
  * Created by Dawid Firuzek on 11.08.2016.
  */
-public class MainPresenter {
+public class MainPresenter implements MainContract.Presenter {
 
     private final InjectedClass injectedClass;
 
-    private @Setter MainView view;
+    private MainContract.View view;
 
     public MainPresenter(InjectedClass injectedClass) {
         this.injectedClass = injectedClass;
     }
 
+    @Override
+    public void setView(MainContract.View view) {
+        this.view = view;
+    }
+
+    @Override
     public void test() {
         Timber.d("test called in MainPresenter");
         injectedClass.test();

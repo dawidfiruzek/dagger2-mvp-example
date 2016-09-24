@@ -1,4 +1,4 @@
-package pl.dawidfiruzek.dagger2mvpexample.main.injection.module;
+package pl.dawidfiruzek.dagger2mvpexample.main.injection;
 
 import android.content.Context;
 
@@ -6,6 +6,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import pl.dawidfiruzek.dagger2mvpexample.main.MainContract;
 import pl.dawidfiruzek.dagger2mvpexample.main.MainPresenter;
 import pl.dawidfiruzek.dagger2mvpexample.main.model.InjectedClass;
 import pl.dawidfiruzek.dagger2mvpexample.main.model.InjectedInnerClass;
@@ -28,7 +29,7 @@ public class MainModule {
 
     @Singleton
     @Provides
-    MainPresenter providePresenter(InjectedClass injectedClass) {
+    MainContract.Presenter providePresenter(InjectedClass injectedClass) {
         return new MainPresenter(injectedClass);
     }
 }
