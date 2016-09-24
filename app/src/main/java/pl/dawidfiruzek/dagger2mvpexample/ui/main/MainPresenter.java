@@ -1,6 +1,6 @@
-package pl.dawidfiruzek.dagger2mvpexample.main;
+package pl.dawidfiruzek.dagger2mvpexample.ui.main;
 
-import pl.dawidfiruzek.dagger2mvpexample.main.model.InjectedClass;
+import pl.dawidfiruzek.dagger2mvpexample.data.InjectedClass;
 import timber.log.Timber;
 
 /**

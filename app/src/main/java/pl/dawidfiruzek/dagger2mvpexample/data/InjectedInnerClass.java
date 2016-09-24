@@ -1,4 +1,4 @@
-package pl.dawidfiruzek.dagger2mvpexample.main.model;
+package pl.dawidfiruzek.dagger2mvpexample.data;
 
 import android.content.Context;
 

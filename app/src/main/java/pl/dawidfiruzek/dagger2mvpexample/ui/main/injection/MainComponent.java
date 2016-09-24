@@ -1,10 +1,10 @@
-package pl.dawidfiruzek.dagger2mvpexample.main.injection;
+package pl.dawidfiruzek.dagger2mvpexample.ui.main.injection;
 
 import javax.inject.Singleton;
 
 import dagger.Component;
-import pl.dawidfiruzek.dagger2mvpexample.common.injection.AppComponent;
-import pl.dawidfiruzek.dagger2mvpexample.main.MainActivity;
+import pl.dawidfiruzek.dagger2mvpexample.util.injection.AppComponent;
+import pl.dawidfiruzek.dagger2mvpexample.ui.main.MainActivity;
 
 /**
  * Created by Dawid Firuzek on 12.08.16.

@@ -1,4 +1,6 @@
-package pl.dawidfiruzek.dagger2mvpexample.main;
+package pl.dawidfiruzek.dagger2mvpexample.ui.main;
+
+import pl.dawidfiruzek.dagger2mvpexample.util.BasePresenter;
 
 /**
  * Created by Dawid Firuzek on 25.09.2016.
@@ -9,8 +11,7 @@ public interface MainContract {
         void callbackMethod();
     }
 
-    interface Presenter {
-        void setView(View view);
+    interface Presenter extends BasePresenter<View> {
         void test();
     }
 }
