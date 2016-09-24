@@ -5,6 +5,7 @@ import android.content.Context;
 import dagger.Module;
 import dagger.Provides;
 import pl.dawidfiruzek.dagger2mvpexample.common.injection.scope.RuntimeScope;
+import pl.dawidfiruzek.dagger2mvpexample.main.MainPresenter;
 import pl.dawidfiruzek.dagger2mvpexample.main.model.InjectedClass;
 import pl.dawidfiruzek.dagger2mvpexample.main.model.InjectedInnerClass;
 
@@ -24,5 +25,11 @@ public class MainModule {
     @Provides
     InjectedClass provideInjectedClass(InjectedInnerClass injectedInnerClass) {
         return new InjectedClass(injectedInnerClass);
+    }
+
+    @RuntimeScope
+    @Provides
+    MainPresenter providePresenter(InjectedClass injectedClass) {
+        return new MainPresenter(injectedClass);
     }
 }

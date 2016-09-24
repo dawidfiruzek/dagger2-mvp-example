@@ -11,13 +11,12 @@ import timber.log.Timber;
  */
 public class MainPresenter {
 
-    @Inject
     InjectedClass injectedClass;
 
     private @Setter MainView view;
 
-    @Inject
-    public MainPresenter() {
+    public MainPresenter(InjectedClass injectedClass) {
+        this.injectedClass = injectedClass;
     }
 
     public void test() {
