@@ -1,7 +1,5 @@
 package pl.dawidfiruzek.dagger2mvpexample.main;
 
-import javax.inject.Inject;
-
 import lombok.Setter;
 import pl.dawidfiruzek.dagger2mvpexample.main.model.InjectedClass;
 import timber.log.Timber;
@@ -11,7 +9,7 @@ import timber.log.Timber;
  */
 public class MainPresenter {
 
-    InjectedClass injectedClass;
+    private final InjectedClass injectedClass;
 
     private @Setter MainView view;
 
@@ -20,7 +18,11 @@ public class MainPresenter {
     }
 
     public void test() {
-        Timber.d("test called");
+        Timber.d("test called in MainPresenter");
         injectedClass.test();
+
+        if(view != null) {
+            view.callbackMethod();
+        }
     }
 }

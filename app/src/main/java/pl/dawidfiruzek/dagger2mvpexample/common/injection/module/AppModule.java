@@ -22,21 +22,18 @@ public class AppModule {
         this.app = app;
     }
 
-    @Singleton
     @Provides
     MyApplication provideApplication() {
         return app;
     }
 
-    @Singleton
     @Provides
     Context provideApplicationContext() {
         return app.getApplicationContext();
     }
 
-    @Singleton
     @Provides
-    SharedPreferences provideSharedPreferences(MyApplication app) {
+    SharedPreferences provideSharedPreferences() {
         return PreferenceManager.getDefaultSharedPreferences(app);
     }
 }

@@ -14,7 +14,7 @@ public class InjectedClass {
     }
 
     public void test() {
-        Timber.d("test called");
+        Timber.d("test called in InjectedClass");
         if (injectedInnerClass != null) {
             injectedInnerClass.test();
         }

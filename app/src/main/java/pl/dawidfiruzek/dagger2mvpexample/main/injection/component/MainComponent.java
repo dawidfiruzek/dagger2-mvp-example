@@ -1,15 +1,16 @@
 package pl.dawidfiruzek.dagger2mvpexample.main.injection.component;
 
+import javax.inject.Singleton;
+
 import dagger.Component;
 import pl.dawidfiruzek.dagger2mvpexample.common.injection.component.AppComponent;
-import pl.dawidfiruzek.dagger2mvpexample.common.injection.scope.RuntimeScope;
 import pl.dawidfiruzek.dagger2mvpexample.main.MainActivity;
 import pl.dawidfiruzek.dagger2mvpexample.main.injection.module.MainModule;
 
 /**
  * Created by Dawid Firuzek on 12.08.16.
  */
-@RuntimeScope
+@Singleton
 @Component(
         dependencies = AppComponent.class,
         modules = MainModule.class

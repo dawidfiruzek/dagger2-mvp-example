@@ -16,7 +16,7 @@ public class InjectedInnerClass {
     }
 
     public void test() {
-        Timber.d("test called");
-        Timber.d(appContext == null ? "context is null" : "context is not null");
+        Timber.d("test called in InjectedInnerClass");
+        Timber.d(appContext == null ? "app context is null" : "app context is not null");
     }
 }

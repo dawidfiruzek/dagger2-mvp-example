@@ -12,7 +12,6 @@ import pl.dawidfiruzek.dagger2mvpexample.common.injection.module.AppModule;
 /**
  * Created by Dawid Firuzek on 11.08.2016.
  */
-@Singleton
 @Component(modules = AppModule.class)
 public interface AppComponent {
 
