@@ -22,7 +22,7 @@ public class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
-    public void clearView() {
+    public void clear() {
         view = null;
     }
 

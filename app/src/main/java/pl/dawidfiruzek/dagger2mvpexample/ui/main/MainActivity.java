@@ -26,7 +26,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
     @Override
     protected void onDestroy() {
-        presenter.clearView();
+        presenter.clear();
         super.onDestroy();
     }
 
