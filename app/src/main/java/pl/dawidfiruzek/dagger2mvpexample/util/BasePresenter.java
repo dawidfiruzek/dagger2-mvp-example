@@ -6,4 +6,5 @@ package pl.dawidfiruzek.dagger2mvpexample.util;
 
 public interface BasePresenter<T> {
     void setView(T view);
+    void clearView();
 }

@@ -25,6 +25,12 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     }
 
     @Override
+    protected void onDestroy() {
+        presenter.clearView();
+        super.onDestroy();
+    }
+
+    @Override
     public void callbackMethod() {
         Timber.d("Callback method called in MainView");
     }

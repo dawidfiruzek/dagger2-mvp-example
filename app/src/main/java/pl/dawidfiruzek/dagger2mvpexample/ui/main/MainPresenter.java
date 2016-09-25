@@ -22,6 +22,11 @@ public class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
+    public void clearView() {
+        view = null;
+    }
+
+    @Override
     public void test() {
         Timber.d("test called in MainPresenter");
         injectedClass.test();

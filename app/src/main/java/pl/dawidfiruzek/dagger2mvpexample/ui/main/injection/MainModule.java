@@ -27,7 +27,6 @@ public class MainModule {
         return new InjectedClass(injectedInnerClass);
     }
 
-    @Singleton
     @Provides
     MainContract.Presenter providePresenter(InjectedClass injectedClass) {
         return new MainPresenter(injectedClass);
