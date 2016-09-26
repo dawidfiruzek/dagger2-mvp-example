@@ -47,18 +47,24 @@ public class MainPresenter implements MainContract.Presenter {
                 .enqueue(new Callback<List<Repository>>() {
                     @Override
                     public void onResponse(Call<List<Repository>> call, Response<List<Repository>> response) {
-                        StringBuilder stringBuilder = new StringBuilder();
-                        for(Repository repo : response.body()) {
-                            stringBuilder.append(repo.getName());
-                            stringBuilder.append("\n");
-                        }
+                        if (response.isSuccessful()) {
+                            StringBuilder stringBuilder = new StringBuilder();
+                            for (Repository repo : response.body()) {
+                                stringBuilder.append(repo.getName());
+                                stringBuilder.append("\n");
+                            }
 
-                        view.showRepos(stringBuilder.toString());
+                            if(view != null) {
+                                view.showRepos(stringBuilder.toString());
+                            }
+                        }
                     }
 
                     @Override
                     public void onFailure(Call<List<Repository>> call, Throwable t) {
-                        view.showRepos("błąd");
+                        if(view != null) {
+                            view.showRepos("błąd");
+                        }
                     }
                 });
     }
