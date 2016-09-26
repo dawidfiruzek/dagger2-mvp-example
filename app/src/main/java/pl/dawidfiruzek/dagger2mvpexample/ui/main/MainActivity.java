@@ -1,16 +1,20 @@
 package pl.dawidfiruzek.dagger2mvpexample.ui.main;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import javax.inject.Inject;
 
-import pl.dawidfiruzek.dagger2mvpexample.ui.main.injection.DaggerMainComponent;
-import pl.dawidfiruzek.dagger2mvpexample.ui.main.injection.MainModule;
+import butterknife.BindView;
 import pl.dawidfiruzek.dagger2mvpexample.util.BaseActivity;
 import pl.dawidfiruzek.dagger2mvpexample.R;
-import timber.log.Timber;
+import pl.dawidfiruzek.dagger2mvpexample.util.injection.main.DaggerMainComponent;
+import pl.dawidfiruzek.dagger2mvpexample.util.injection.main.MainModule;
 
 public class MainActivity extends BaseActivity implements MainContract.View, MainContract.Router {
+
+    @BindView(R.id.main_textview_repos)
+    TextView repos;
 
     @Inject
     MainContract.Presenter presenter;
@@ -34,13 +38,18 @@ public class MainActivity extends BaseActivity implements MainContract.View, Mai
         super.onCreate(savedInstanceState);
 
         init();
-
-        presenter.test();
     }
 
     private void init() {
         presenter.setView(this);
         presenter.setRouter(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        presenter.onResumed();
     }
 
     @Override
@@ -50,7 +59,7 @@ public class MainActivity extends BaseActivity implements MainContract.View, Mai
     }
 
     @Override
-    public void callbackMethod() {
-        Timber.d("Callback method called in MainView");
+    public void showRepos(String repos) {
+        this.repos.setText(repos);
     }
 }

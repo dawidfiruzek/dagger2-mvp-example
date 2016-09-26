@@ -1,8 +1,8 @@
-package pl.dawidfiruzek.dagger2mvpexample.ui.main.injection;
+package pl.dawidfiruzek.dagger2mvpexample.util.injection.main;
 
 import dagger.Component;
 import pl.dawidfiruzek.dagger2mvpexample.ui.main.MainActivity;
-import pl.dawidfiruzek.dagger2mvpexample.util.injection.AppComponent;
+import pl.dawidfiruzek.dagger2mvpexample.util.injection.app.AppComponent;
 import pl.dawidfiruzek.dagger2mvpexample.util.injection.RuntimeScope;
 
 /**

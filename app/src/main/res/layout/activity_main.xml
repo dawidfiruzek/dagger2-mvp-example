@@ -10,7 +10,8 @@
     tools:context=".ui.main.MainActivity">
 
     <TextView
+        android:id="@+id/main_textview_repos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        tools:text="Hello World!" />
 </RelativeLayout>

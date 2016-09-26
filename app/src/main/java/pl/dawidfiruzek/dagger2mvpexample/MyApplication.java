@@ -4,9 +4,9 @@ import android.app.Application;
 
 import lombok.Getter;
 
-import pl.dawidfiruzek.dagger2mvpexample.util.injection.AppComponent;
-import pl.dawidfiruzek.dagger2mvpexample.util.injection.AppModule;
-import pl.dawidfiruzek.dagger2mvpexample.util.injection.DaggerAppComponent;
+import pl.dawidfiruzek.dagger2mvpexample.util.injection.app.AppComponent;
+import pl.dawidfiruzek.dagger2mvpexample.util.injection.app.AppModule;
+import pl.dawidfiruzek.dagger2mvpexample.util.injection.app.DaggerAppComponent;
 import timber.log.Timber;
 
 /**

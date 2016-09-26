@@ -2,21 +2,26 @@ package pl.dawidfiruzek.dagger2mvpexample.ui.main;
 
 import android.support.annotation.NonNull;
 
-import pl.dawidfiruzek.dagger2mvpexample.data.InjectedClass;
-import timber.log.Timber;
+import java.util.List;
+
+import pl.dawidfiruzek.dagger2mvpexample.data.Repository;
+import pl.dawidfiruzek.dagger2mvpexample.util.api.GitHubService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Dawid Firuzek on 11.08.2016.
  */
 public class MainPresenter implements MainContract.Presenter {
 
-    private final InjectedClass injectedClass;
+    private final GitHubService gitHubService;
 
     private MainContract.View view;
     private MainContract.Router router;
 
-    public MainPresenter(InjectedClass injectedClass) {
-        this.injectedClass = injectedClass;
+    public MainPresenter(GitHubService gitHubService) {
+        this.gitHubService = gitHubService;
     }
 
     @Override
@@ -36,12 +41,25 @@ public class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
-    public void test() {
-        Timber.d("test called in MainPresenter");
-        injectedClass.test();
+    public void onResumed() {
+        gitHubService
+                .getRepositories("dawidfiruzek")
+                .enqueue(new Callback<List<Repository>>() {
+                    @Override
+                    public void onResponse(Call<List<Repository>> call, Response<List<Repository>> response) {
+                        StringBuilder stringBuilder = new StringBuilder();
+                        for(Repository repo : response.body()) {
+                            stringBuilder.append(repo.getName());
+                            stringBuilder.append("\n");
+                        }
 
-        if(view != null) {
-            view.callbackMethod();
-        }
+                        view.showRepos(stringBuilder.toString());
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Repository>> call, Throwable t) {
+                        view.showRepos("błąd");
+                    }
+                });
     }
 }

@@ -1,4 +1,4 @@
-package pl.dawidfiruzek.dagger2mvpexample.util.injection;
+package pl.dawidfiruzek.dagger2mvpexample.util.injection.app;
 
 import android.content.Context;
 import android.content.SharedPreferences;

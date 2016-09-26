@@ -10,12 +10,12 @@ import pl.dawidfiruzek.dagger2mvpexample.util.BasePresenter;
 
 public interface MainContract {
     interface View {
-        void callbackMethod();
+        void showRepos(String repos);
     }
 
     interface Presenter extends BasePresenter<View>{
         void setRouter(@NonNull Router router);
-        void test();
+        void onResumed();
     }
 
     interface Router {
