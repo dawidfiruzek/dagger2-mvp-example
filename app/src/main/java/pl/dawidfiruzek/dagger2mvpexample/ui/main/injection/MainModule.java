@@ -18,14 +18,6 @@ import pl.dawidfiruzek.dagger2mvpexample.data.InjectedInnerClass;
 @Module
 public class MainModule {
 
-    private final MainContract.View view;
-    private final MainContract.Router router;
-
-    public MainModule(@NonNull MainContract.View view, @NonNull MainContract.Router router) {
-        this.view = view;
-        this.router = router;
-    }
-
     @Provides
     InjectedInnerClass provideInjectedInnerClass(Context appContext) {
         return new InjectedInnerClass(appContext);
@@ -38,6 +30,6 @@ public class MainModule {
 
     @Provides
     MainContract.Presenter providePresenter(InjectedClass injectedClass) {
-        return new MainPresenter(view, router, injectedClass);
+        return new MainPresenter(injectedClass);
     }
 }

@@ -24,7 +24,7 @@ public class MainActivity extends BaseActivity implements MainContract.View, Mai
     protected void initDaggerComponent() {
         DaggerMainComponent.builder()
                 .appComponent(getApp().getAppComponent())
-                .mainModule(new MainModule(this, this))
+                .mainModule(new MainModule())
                 .build()
                 .inject(this);
     }
@@ -33,7 +33,20 @@ public class MainActivity extends BaseActivity implements MainContract.View, Mai
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        init();
+
         presenter.test();
+    }
+
+    private void init() {
+        presenter.setView(this);
+        presenter.setRouter(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        presenter.clear();
+        super.onDestroy();
     }
 
     @Override

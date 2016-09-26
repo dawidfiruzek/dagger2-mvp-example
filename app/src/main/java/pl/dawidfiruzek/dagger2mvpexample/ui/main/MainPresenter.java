@@ -1,5 +1,7 @@
 package pl.dawidfiruzek.dagger2mvpexample.ui.main;
 
+import android.support.annotation.NonNull;
+
 import pl.dawidfiruzek.dagger2mvpexample.data.InjectedClass;
 import timber.log.Timber;
 
@@ -8,16 +10,29 @@ import timber.log.Timber;
  */
 public class MainPresenter implements MainContract.Presenter {
 
-    private final MainContract.View view;
-    private final MainContract.Router router;
     private final InjectedClass injectedClass;
 
-    public MainPresenter(MainContract.View view,
-                         MainContract.Router router,
-                         InjectedClass injectedClass) {
-        this.view = view;
-        this.router = router;
+    private MainContract.View view;
+    private MainContract.Router router;
+
+    public MainPresenter(InjectedClass injectedClass) {
         this.injectedClass = injectedClass;
+    }
+
+    @Override
+    public void setView(@NonNull MainContract.View view) {
+        this.view = view;
+    }
+
+    @Override
+    public void setRouter(@NonNull MainContract.Router router) {
+        this.router = router;
+    }
+
+    @Override
+    public void clear() {
+        view = null;
+        router = null;
     }
 
     @Override
