@@ -8,22 +8,16 @@ import timber.log.Timber;
  */
 public class MainPresenter implements MainContract.Presenter {
 
+    private final MainContract.View view;
+    private final MainContract.Router router;
     private final InjectedClass injectedClass;
 
-    private MainContract.View view;
-
-    public MainPresenter(InjectedClass injectedClass) {
-        this.injectedClass = injectedClass;
-    }
-
-    @Override
-    public void setView(MainContract.View view) {
+    public MainPresenter(MainContract.View view,
+                         MainContract.Router router,
+                         InjectedClass injectedClass) {
         this.view = view;
-    }
-
-    @Override
-    public void clear() {
-        view = null;
+        this.router = router;
+        this.injectedClass = injectedClass;
     }
 
     @Override

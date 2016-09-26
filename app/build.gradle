@@ -45,4 +45,8 @@ dependencies {
 
     // Timber
     compile 'com.jakewharton.timber:timber:4.1.2'
+
+    // ButterKnife
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
 }
